@@ -1,0 +1,6 @@
+version=3
+
+opts="filenamemangle=s/.+\/(\d[\d.]*)\.tar\.gz/vim-command-t-$1\.tar\.gz/" \
+	https://github.com/wincent/command-t/releases .*/archive/(\d[\d.]*)\.tar\.gz \
+	debian \
+	uupdate

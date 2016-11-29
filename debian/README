@@ -1,0 +1,10 @@
+command-t plug-in for Debian
+============================
+
+This package provides the command-t vim addon, but it is not enabled by
+default. If you want to enable it for your account, execute
+'vim-addons install command-t'. If you want to enable it for all users
+of the system, execute 'vim-addons -w install command-t'.
+
+vim-addons is provided by the vim-addon-manager package; have a loot at
+its man-page for more information.

@@ -1,0 +1,10 @@
+command-t source package notes
+==============================
+
+The original archive may be fetched by running 'debian/rules get-orig-source'.
+This will clone upstream's git repository and generate an archive of the
+desired commit (normally identified by the tag corresponding to the version).
+
+This should generate the same (after uncompression) archive as Github does on
+the project's releases page, however there is additional flexibility in being
+able to target an unreleased version if useful in the future.

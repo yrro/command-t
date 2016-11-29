@@ -1,0 +1,11 @@
+--- vim-command-t-3.0.2.orig/Rakefile
++++ vim-command-t-3.0.2/Rakefile
+@@ -84,7 +84,7 @@ task :make do
+     ruby 'extconf.rb'
+     system 'make clean'
+     bail_on_failure
+-    system 'make'
++    system 'make V=1'
+     bail_on_failure
+   end
+ end

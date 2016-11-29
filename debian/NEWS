@@ -1,0 +1,8 @@
+vim-command-t (2.0-2) unstable; urgency=medium
+
+  The command-t addon is now installed system-wide, by default. This works
+  arounds problems caused when upgrading the addon: unless every user
+  remembers to re-install the addon after the upgrade, then invoking :CommandT
+  will break Vim in a variety of interesting ways.
+
+ -- Sam Morris <sam@robots.org.uk>  Wed, 20 Jan 2016 11:59:56 +0000

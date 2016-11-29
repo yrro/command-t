@@ -1,0 +1,29 @@
+Description: Remove gems that are not needed to run tests
+ These gems are only needed by upstream when they run their upload task.
+ Their presence causes bundle to fail the build, since their transitive
+ dependencies are not available in Debian.
+Author: Sam Morris <sam@robots.org.uk>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- vim-command-t-2.0.orig/Gemfile
++++ vim-command-t-2.0/Gemfile
+@@ -1,7 +1,5 @@
+ source 'https://rubygems.org'
+ 
+-gem 'nokogiri'
+-gem 'mechanize'
+ gem 'rake'
+ gem 'rr'
+ gem 'rspec'

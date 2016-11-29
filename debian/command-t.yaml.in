@@ -1,0 +1,4 @@
+addon: command-t
+description: extremely fast, intuitive mechanism for opening files with a minimum number of keystrokes
+basedir: /usr/lib/vim-command-t
+files: 

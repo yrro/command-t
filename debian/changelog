@@ -1,0 +1,127 @@
+vim-command-t (4.0-3) unstable; urgency=medium
+
+  * Rebuild against ruby 2.3.3. (Closes: #846233)
+
+ -- Sam Morris <sam@robots.org.uk>  Tue, 29 Nov 2016 15:46:56 +0000
+
+vim-command-t (4.0-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Re-submit with correct signature
+
+ -- Craig Small <csmall@debian.org>  Mon, 24 Oct 2016 21:16:46 +1100
+
+vim-command-t (4.0-2) unstable; urgency=medium
+
+  * Tighten binary dependency on libruby to try to prevent upgrades of libruby
+    from breaking the addon.
+
+ -- Sam Morris <sam@robots.org.uk>  Tue, 21 Jun 2016 21:53:20 +0100
+
+vim-command-t (4.0-1) unstable; urgency=medium
+
+  * Allow 'nocheck' in DEB_BUILD_OPTIONS environment variable to skip test
+    suite.
+  * New upstream release.
+  * Rebuild against current ruby2.3-dev. (Closes: #825015)
+  * Remove format-string-warning.patch: merged upstream.
+
+ -- Sam Morris <sam@robots.org.uk>  Sun, 22 May 2016 23:47:28 +0100
+
+vim-command-t (3.0.2-2) unstable; urgency=medium
+
+  * Add make-verbose.patch to display compilation command lines.
+  * Add format-string-warning.patch to use the correct format specifier for
+    ssize_t.
+
+ -- Sam Morris <sam@robots.org.uk>  Sat, 20 Feb 2016 23:38:53 +0000
+
+vim-command-t (3.0.2-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Sam Morris <sam@robots.org.uk>  Fri, 12 Feb 2016 20:11:06 +0000
+
+vim-command-t (2.0-2) unstable; urgency=medium
+
+  * Install the addon system-wide by default.
+
+ -- Sam Morris <sam@robots.org.uk>  Wed, 20 Jan 2016 11:59:44 +0000
+
+vim-command-t (2.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Reorganize build a bit; invoke targets via upstream's Rakefile rather
+    than re-implementing the build & clean targets in debian/rules.
+  * Run tests after the build. Apply a couple of patches from upstream git
+    to fix some failing tests.
+  * Remove nokogiri and mechanize from the Gemfile; their transitive
+    dependencies are not in Debian, causing 'bundle' to fail the build;
+    however they are not actually required to run the tests (they are only
+    used by upstream's upload task).
+
+ -- Sam Morris <sam@robots.org.uk>  Wed, 20 Jan 2016 11:45:47 +0000
+
+vim-command-t (1.13-4) unstable; urgency=medium
+
+  * Drop versioned build-depends on ruby and ruby-dev; they don't prevent
+    version skew caused by trying to use vim-command-t with a version of
+    vim that is linked against a different libruby to the one that
+    vim-command-t itself was linked against.
+  * Update Standards-Version (no changes).
+  * Shorten first line of Description.
+
+ -- Sam Morris <sam@robots.org.uk>  Thu, 17 Dec 2015 12:45:08 +0000
+
+vim-command-t (1.13-3) unstable; urgency=medium
+
+  * Build-depend on both ruby and ruby-dev (the former for extconf.rb, the
+    latter for the headers).
+
+ -- Sam Morris <sam@robots.org.uk>  Tue, 24 Nov 2015 11:44:48 +0000
+
+vim-command-t (1.13-2) unstable; urgency=medium
+
+  * Build-depend on ruby rather than ruby-dev; the expected Ruby version
+    stored within metadata.rb is actually taken from the version of the
+    interpreter that runs extconf.rb.
+  * Use a versioned build-dependency so that the interpreter from the version
+    against which vim (in unstable) was built is used.
+
+ -- Sam Morris <sam@robots.org.uk>  Fri, 13 Nov 2015 09:44:26 +0000
+
+vim-command-t (1.13-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add get-orig-source target to debian/rules.
+  * Make install file executable.
+  * Add watch file.
+
+ -- Sam Morris <sam@robots.org.uk>  Mon, 06 Jul 2015 14:41:53 +0100
+
+vim-command-t (1.11.1-2) unstable; urgency=low
+
+  * Change format to 3.0 (quilt).
+
+ -- Sam Morris <sam@robots.org.uk>  Sun, 31 Aug 2014 09:12:09 +0100
+
+vim-command-t (1.11.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Install autoload file.
+  * Use command-t.txt inside doc directory rather than renaming README.txt.
+
+ -- Sam Morris <sam@robots.org.uk>  Sat, 30 Aug 2014 19:29:30 +0100
+
+vim-command-t (1.5.1-1) precise; urgency=low
+
+  * New upstream release.
+  * Bump debhelper compat to 9.
+
+ -- Sam Morris <sam@robots.org.uk>  Tue, 05 Nov 2013 11:42:34 +0000
+
+vim-command-t (1.4-1) unstable; urgency=low
+
+  * Initial release. (Closes: #614241)
+
+ -- Sam Morris <sam@robots.org.uk>  Fri, 30 Nov 2012 18:54:04 +0000

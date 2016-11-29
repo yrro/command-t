@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	rake make
+
+override_dh_auto_clean:
+	rake clean
+	rm -f ruby/command-t/metadata.rb Gemfile.lock
+
+override_dh_auto_test:
+# `bundle install` creates a .bundle/config that sets BUNDLE_DISABLE_SHARED_GEMS,
+# thereby causing `bundle exec` to complain that Debian-packaged gems are missing.
+	rm -rf .bundle
+ifneq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	rake spec
+endif
+
+override_dh_install:
+	dh_install
+	cp debian/command-t.yaml.in debian/vim-command-t/usr/share/vim/registry/command-t.yaml
+	cd debian/vim-command-t/usr/lib/vim-command-t && \
+	    find -type f | sed 's,^\./, - ,' >> ../../share/vim/registry/command-t.yaml
+
+override_dh_gencontrol:
+# We need to be stricter than libruby2.3's default shlibs file due to
+# <https://github.com/wincent/command-t/issues/192>, so override the default
+# shlibs/symbols files with debian/shlibs.local, providing the current and next
+# versions of ruby as the lower/upper bounds required by that file.
+	dh_gencontrol -- \
+		'-Vcommand-t:ruby-min=$(shell ruby -e "require './ruby/command-t/metadata'" -e 'print CommandT::Metadata::EXPECTED_RUBY_VERSION')' \
+		'-Vcommand-t:ruby-max=$(shell ruby -e "require './ruby/command-t/metadata'" -e 'if m = CommandT::Metadata::EXPECTED_RUBY_VERSION.match(/(\d+\.\d+\.)(\d+)/) then print m.captures[0], m.captures[1].to_i(10)+1 end')'
+
+get-orig-source: VERSION := $(shell dpkg-parsechangelog -S Version | perl -pe 's/(.*)-/$1/')
+get-orig-source:
+	set -eu; \
+	    d=$(shell mktemp -d); \
+	    trap "rm -rf $$d" EXIT; \
+	    (cd "$$d"; git clone https://github.com/wincent/command-t.git); \
+	    (cd "$$d/command-t"; git archive --format=tar --prefix=command-t-$(VERSION)/ $(VERSION) > ../command-t-$(VERSION).tar); \
+	    xz -9 "$$d/command-t-$(VERSION).tar"; \
+	    mv "$$d/command-t-$(VERSION).tar.xz" .

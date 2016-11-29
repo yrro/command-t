@@ -1,0 +1,31 @@
+Source: vim-command-t
+Maintainer: Sam Morris <sam@robots.org.uk>
+Section: editors
+Priority: optional
+Build-Depends:
+ bundler,
+ debhelper (>= 9),
+ rake,
+ ruby,
+ ruby-dev,
+ ruby-rr (>= 1.1.2-2),
+# Prior versions do not have rubygems-integration for ruby2.2
+ ruby-rspec,
+Standards-Version: 3.9.6
+Homepage: https://wincent.com/products/command-t
+
+Package: vim-command-t
+Architecture: any
+Depends:
+ vim-addon-manager,
+ vim-nox | vim-ruby,
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: open files with a minimum number of keystrokes
+ Files are selected by typing characters that appear in their paths, and
+ are ordered by an algorithm which knows that characters that appear in
+ certain locations (for example, immediately after a path separator)
+ should be given more weight.
+ .
+ Command-T is named so because it is inspired by the "Go to File" window
+ bound to Command-T in TextMate.
