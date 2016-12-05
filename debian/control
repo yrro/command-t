@@ -4,7 +4,7 @@ Section: editors
 Priority: optional
 Build-Depends:
  bundler,
- debhelper (>= 9),
+ debhelper (>= 10),
  rake,
  ruby,
  ruby-dev,
