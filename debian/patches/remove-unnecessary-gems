@@ -1,24 +1,15 @@
-Description: Remove gems that are not needed to run tests
- These gems are only needed by upstream when they run their upload task.
- Their presence causes bundle to fail the build, since their transitive
- dependencies are not available in Debian.
-Author: Sam Morris <sam@robots.org.uk>
+From: Sam Morris <sam@robots.org.uk>
+Date: Mon, 5 Dec 2016 02:05:00 +0000
+Subject: remove-unnecessary-gems
 
 ---
-The information above should follow the Patch Tagging Guidelines, please
-checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
-are templates for supplementary fields that you might want to add:
+ Gemfile | 2 --
+ 1 file changed, 2 deletions(-)
 
-Origin: <vendor|upstream|other>, <url of original patch>
-Bug: <url in upstream bugtracker>
-Bug-Debian: https://bugs.debian.org/<bugnumber>
-Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
-Forwarded: <no|not-needed|url proving that it has been forwarded>
-Reviewed-By: <name and email of someone who approved the patch>
-Last-Update: <YYYY-MM-DD>
-
---- vim-command-t-2.0.orig/Gemfile
-+++ vim-command-t-2.0/Gemfile
+diff --git a/Gemfile b/Gemfile
+index 3afc8e2..c02a437 100644
+--- a/Gemfile
++++ b/Gemfile
 @@ -1,7 +1,5 @@
  source 'https://rubygems.org'
  

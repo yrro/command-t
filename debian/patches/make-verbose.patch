@@ -1,5 +1,15 @@
---- vim-command-t-3.0.2.orig/Rakefile
-+++ vim-command-t-3.0.2/Rakefile
+From: Sam Morris <sam@robots.org.uk>
+Date: Mon, 5 Dec 2016 02:05:00 +0000
+Subject: make-verbose
+
+---
+ Rakefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Rakefile b/Rakefile
+index 54c242f..7431d62 100644
+--- a/Rakefile
++++ b/Rakefile
 @@ -84,7 +84,7 @@ task :make do
      ruby 'extconf.rb'
      system 'make clean'
