@@ -21,7 +21,8 @@ endif
 
 override_dh_install:
 	dh_install
-	find ruby '(' -name '*.rb' -o -name '*.so' ')' -exec cp --parents {} debian/vim-command-t/usr/lib/vim-command-t ';'
+	find ruby '(' -name '*.rb' -o -name '*.so' ')' -exec cp --parents {} debian/vim-command-t/usr/share/vim/vim80/pack/command-t/start/command-t ';'
+	helpztags debian/vim-command-t/usr/share/vim/vim80/pack/command-t/start/command-t/doc/
 
 get-orig-source: VERSION := $(shell dpkg-parsechangelog -S Version | perl -pe 's/(.*)-/$1/')
 get-orig-source:

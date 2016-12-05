@@ -1,6 +1,0 @@
-command-t for Debian
-====================
-
-The command-t vim addon is not enabled by default. To enable it for your own
-user account, run 'vim-addon-manager install command-t'. To enable it for all
-users on the system, run 'vim-addon-manager -w install command-t'.
