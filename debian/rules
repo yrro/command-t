@@ -14,7 +14,7 @@ override_dh_auto_test:
 # `bundle install` creates a .bundle/config that sets BUNDLE_DISABLE_SHARED_GEMS,
 # thereby causing `bundle exec` to complain that Debian-packaged gems are missing.
 	rm -rf .bundle
-ifneq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	rake spec
 endif
 
