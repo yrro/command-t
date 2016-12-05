@@ -1,6 +1,15 @@
 command-t source package notes
 ==============================
 
+I'm maintaining the package using git-buildpackage. Source packages are
+generated with:
+
+    $ gbp dch --release
+    $ gbp buildpackage --git-debian-branch=debian/sid --git-pristine-tar --git-tag
+
+get-orig-source
+---------------
+
 The original archive may be fetched by running 'debian/rules get-orig-source'.
 This will clone upstream's git repository and generate an archive of the
 desired commit (normally identified by the tag corresponding to the version).
