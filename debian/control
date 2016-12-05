@@ -13,6 +13,8 @@ Build-Depends:
  ruby-rspec,
 Standards-Version: 3.9.6
 Homepage: https://wincent.com/products/command-t
+Vcs-Browser: https://github.com/yrro/command-t
+Vcs-Git: https://github.com/yrro/command-t.git
 
 Package: vim-command-t
 Architecture: any
