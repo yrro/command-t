@@ -1,3 +1,5 @@
 autoload              /usr/lib/vim-command-t/
 plugin                /usr/lib/vim-command-t/
 doc/*.txt             /usr/lib/vim-command-t/doc/
+
+debian/command-t.yaml /usr/share/vim/registry/
