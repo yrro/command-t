@@ -1,21 +1,21 @@
 From: Sam Morris <sam@robots.org.uk>
-Date: Mon, 5 Dec 2016 02:05:00 +0000
-Subject: make-verbose
+Date: Mon, 5 Dec 2016 02:24:42 +0000
+Subject: Link with --as-needed
 
 ---
  Rakefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Rakefile b/Rakefile
-index 54c242f..8e8f95f 100644
+index 8e8f95f..9515980 100644
 --- a/Rakefile
 +++ b/Rakefile
 @@ -84,7 +84,7 @@ task :make do
      ruby 'extconf.rb'
      system 'make clean'
      bail_on_failure
--    system 'make'
-+    system 'make', 'V=1'
+-    system 'make', 'V=1'
++    system 'make', 'V=1', 'DLDFLAGS=$(ldflags) $(dldflags) $(ARCH_FLAG) -Wl,--as-needed'
      bail_on_failure
    end
  end
