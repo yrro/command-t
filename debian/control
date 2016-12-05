@@ -11,6 +11,8 @@ Build-Depends:
  ruby-rr (>= 1.1.2-2),
 # Prior versions do not have rubygems-integration for ruby2.2
  ruby-rspec,
+ vim-common,
+# for helpztags
 Standards-Version: 3.9.6
 Homepage: https://wincent.com/products/command-t
 Vcs-Browser: https://github.com/yrro/command-t
@@ -19,8 +21,9 @@ Vcs-Git: https://github.com/yrro/command-t.git
 Package: vim-command-t
 Architecture: any
 Depends:
- vim-addon-manager,
  vim-nox | vim-ruby,
+ vim-common (>= 2:8),
+# for packages feature
  ${shlibs:Depends},
  ${misc:Depends},
 Description: open files with a minimum number of keystrokes

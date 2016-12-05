@@ -1,15 +1,8 @@
 vim-command-t (4.0-4) UNRELEASED; urgency=medium
 
-  The addon is no longer installed system-wide by default. As a result, if the
-  addon was previously installed system-wide, then it will have been removed
-  when upgrading to this version of the package.
-
-  This is because vim-addon-manager has been improved to fix the problem
-  described in the previous NEWS.Debian entry. As a result, we will no longer
-  have to for the addon to be installed system-wide.
-
-  To get the addon enabled again, run 'vim-addon-manager install command-t' as
-  before.
+  The package now uses Vim's native package manager, added in Vim 8. As a
+  result, vim-addon-manager is no longer used and the package is always
+  enabled for all users.
 
  -- Sam Morris <sam@robots.org.uk>  Tue, 25 Oct 2016 11:59:24 +0100
 

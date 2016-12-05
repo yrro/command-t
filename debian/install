@@ -1,5 +1,3 @@
-autoload              /usr/lib/vim-command-t/
-plugin                /usr/lib/vim-command-t/
-doc/*.txt             /usr/lib/vim-command-t/doc/
-
-debian/command-t.yaml /usr/share/vim/registry/
+autoload              /usr/share/vim/vim80/pack/command-t/start/command-t
+plugin                /usr/share/vim/vim80/pack/command-t/start/command-t
+doc/*.txt             /usr/share/vim/vim80/pack/command-t/start/command-t/doc
