@@ -1,0 +1,36 @@
+From: Sam Morris <sam@robots.org.uk>
+Date: Fri, 9 Dec 2016 23:33:08 +0000
+Subject: Remove ruby version check
+
+This way, the package will not have to be rebuilt every time libruby is
+updated. Upstream is happy for us to remove this check.
+---
+ autoload/commandt.vim | 15 ++-------------
+ 1 file changed, 2 insertions(+), 13 deletions(-)
+
+diff --git a/autoload/commandt.vim b/autoload/commandt.vim
+index 7513f55..a03a2a1 100644
+--- a/autoload/commandt.vim
++++ b/autoload/commandt.vim
+@@ -154,19 +154,8 @@ ruby << EOF
+   # require Ruby files
+   begin
+     require 'command-t'
+-
+-    # Make sure we're running with the same version of Ruby that Command-T was
+-    # compiled with.
+-    patchlevel = defined?(RUBY_PATCHLEVEL) ? RUBY_PATCHLEVEL : nil
+-    if CommandT::Metadata::UNKNOWN == true || (
+-      CommandT::Metadata::EXPECTED_RUBY_VERSION == RUBY_VERSION &&
+-      CommandT::Metadata::EXPECTED_RUBY_PATCHLEVEL == patchlevel
+-    )
+-      require 'command-t/ext' # eager load, to catch compilation problems early
+-      $command_t = CommandT::Controller.new
+-    else
+-      $command_t = CommandT::Stub.new
+-    end
++    require 'command-t/ext' # eager load, to catch compilation problems early
++    $command_t = CommandT::Controller.new
+   rescue LoadError
+     load_path_modified = false
+     ::VIM::evaluate('&runtimepath').to_s.split(',').each do |path|

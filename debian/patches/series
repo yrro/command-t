@@ -1,3 +1,4 @@
 remove-unnecessary-gems
 make-verbose.patch
 link-as-needed.patch
+relax-ruby-version-check
