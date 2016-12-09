@@ -1,0 +1,2 @@
+# As advised by 'Working with 3.0 (quilt) packages' from the git-buildpackage manual
+unapply-patches
