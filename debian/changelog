@@ -1,3 +1,14 @@
+vim-command-t (4.0-4) unstable; urgency=medium
+
+  * Begin using git-buildpackage to maintain the package.
+  * Upgrade to debhelper compat level 10.
+  * Link with --as-needed.
+  * Fix inverted logic in handling of 'nocheck' in DEB_BUILD_OPTIONS.
+  * Allow tests to fail.
+  * Remove strict dependency on libruby. (Closes: #847068)
+
+ -- Sam Morris <sam@robots.org.uk>  Fri, 09 Dec 2016 23:38:28 +0000
+
 vim-command-t (4.0-3) unstable; urgency=medium
 
   * Rebuild against ruby 2.3.3. (Closes: #846233)
