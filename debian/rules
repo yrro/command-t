@@ -23,7 +23,7 @@ endif
 override_dh_install:
 	dh_install
 	find ruby '(' -name '*.rb' -o -name '*.so' ')' -exec cp --parents {} debian/vim-command-t/usr/lib/vim-command-t ';'
-	cp debian/command-t.yaml.in debian/vim-command-t/usr/share/vim/registry/command-t.yaml
+	install -T -D -m 0644 debian/command-t.yaml.in debian/vim-command-t/usr/share/vim/registry/command-t.yaml
 	cd debian/vim-command-t/usr/lib/vim-command-t && \
 	    find -type f | sed 's,^\./, - ,' >> ../../share/vim/registry/command-t.yaml
 
