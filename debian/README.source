@@ -1,11 +1,18 @@
 command-t source package notes
 ==============================
 
-I'm maintaining the package using git-buildpackage. Source packages are
-generated with:
+I'm maintaining the package using git-buildpackage, using [Upstream tarballs
+and linked upstream
+history](file:///usr/share/doc/git-buildpackage/manual-html/gbp.import.html#GBP.IMPORT.UPSTREAM.GIT.TARBALL>).
+
+Source packages are generated with:
 
     $ gbp dch --release
-    $ gbp buildpackage --git-debian-branch=debian/sid --git-pristine-tar --git-tag
+    $ gbp buildpackage --git-pristine-tar --git-tag
+
+A new upstream release can be imported with:
+
+    $ gbp import-orig --uscan
 
 get-orig-source
 ---------------
