@@ -1,0 +1,202 @@
+Get test suite passing. As of 5.0, fails with:
+
+  1) CommandT::Controller accept selection opens relative paths inside the working directory
+     Failure/Error: stub(finder).path = anything
+
+     NoMethodError:
+       undefined method `stub' for #<RSpec::ExampleGroups::CommandTController::AcceptSelection:0x00560e66aaaf80>
+     # ./spec/command-t/controller_spec.rb:62:in `stub_finder'
+     # ./spec/command-t/controller_spec.rb:12:in `block (3 levels) in <top (required)>'
+
+  2) CommandT::Controller accept selection opens absolute paths outside the working directory
+     Failure/Error: stub(finder).path = anything
+
+     NoMethodError:
+       undefined method `stub' for #<RSpec::ExampleGroups::CommandTController::AcceptSelection:0x00560e66a8a488>
+     # ./spec/command-t/controller_spec.rb:62:in `stub_finder'
+     # ./spec/command-t/controller_spec.rb:12:in `block (3 levels) in <top (required)>'
+
+  3) CommandT::Controller accept selection does not get confused by common directory prefixes
+     Failure/Error: stub(finder).path = anything
+
+     NoMethodError:
+       undefined method `stub' for #<RSpec::ExampleGroups::CommandTController::AcceptSelection:0x00560e66a88200>
+     # ./spec/command-t/controller_spec.rb:62:in `stub_finder'
+     # ./spec/command-t/controller_spec.rb:12:in `block (3 levels) in <top (required)>'
+
+  4) CommandT::Controller accept selection does not enter an infinite loop when toggling focus
+     Failure/Error: stub(finder).path = anything
+
+     NoMethodError:
+       undefined method `stub' for #<RSpec::ExampleGroups::CommandTController::AcceptSelection:0x00560e66a7d8a0>
+     # ./spec/command-t/controller_spec.rb:62:in `stub_finder'
+     # ./spec/command-t/controller_spec.rb:12:in `block (3 levels) in <top (required)>'
+
+  5) CommandT::Finder::BufferFinder sorted_matches_for method returns an empty array when no matches
+     Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+     NoMethodError:
+       undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a4fbf8>
+       Did you mean?  an_instance_of
+
+     # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  6) CommandT::Finder::BufferFinder sorted_matches_for method returns all files when query string is empty
+     Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+     NoMethodError:
+       undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a26ed8>
+       Did you mean?  an_instance_of
+     # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  7) CommandT::Finder::BufferFinder sorted_matches_for method returns files in alphabetical order when query string is empty
+     Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+     NoMethodError:
+       undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a1f908>
+       Did you mean?  an_instance_of
+     # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  8) CommandT::Finder::BufferFinder sorted_matches_for method returns matching files in score order
+     Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+     NoMethodError:
+       undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a1dec8>
+       Did you mean?  an_instance_of
+     # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  9) CommandT::Finder::BufferFinder sorted_matches_for method returns matching dot files even when search term does not include a dot
+     Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+     NoMethodError:
+       undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a1c1e0>
+       Did you mean?  an_instance_of
+     # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  10) CommandT::Finder::BufferFinder sorted_matches_for method returns matching files inside dot directories even when search term does not include a dot
+      Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+      NoMethodError:
+        undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a06728>
+        Did you mean?  an_instance_of
+      # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  11) CommandT::Finder::BufferFinder sorted_matches_for method does not consult the 'wildignore' setting
+      Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+      NoMethodError:
+        undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e66a04d88>
+        Did you mean?  an_instance_of
+      # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  12) CommandT::Finder::BufferFinder sorted_matches_for method obeys the :limit option for empty search strings
+      Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+      NoMethodError:
+        undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e669db230>
+        Did you mean?  an_instance_of
+      # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  13) CommandT::Finder::BufferFinder sorted_matches_for method obeys the :limit option for non-empty search strings
+      Failure/Error: any_instance_of(CommandT::Scanner::BufferScanner, :paths => @paths)
+
+      NoMethodError:
+        undefined method `any_instance_of' for #<RSpec::ExampleGroups::CommandTFinderBufferFinder::SortedMatchesForMethod:0x00560e669d2130>
+        Did you mean?  an_instance_of
+      # ./spec/command-t/finder/buffer_finder_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  14) CommandT::Finder::FileFinder sorted_matches_for method returns an empty array when no matches
+      Failure/Error: stub(::VIM).evaluate(/expand/) { 0 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTFinderFileFinder::SortedMatchesForMethod:0x00560e669c5b10>
+      # ./spec/command-t/finder/file_finder_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+  15) CommandT::Finder::FileFinder sorted_matches_for method returns all files when query string is empty
+      Failure/Error: stub(::VIM).evaluate(/expand/) { 0 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTFinderFileFinder::SortedMatchesForMethod:0x00560e669a7c28>
+      # ./spec/command-t/finder/file_finder_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+  16) CommandT::Finder::FileFinder sorted_matches_for method returns files in alphabetical order when query string is empty
+      Failure/Error: stub(::VIM).evaluate(/expand/) { 0 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTFinderFileFinder::SortedMatchesForMethod:0x00560e669a4cf8>
+      # ./spec/command-t/finder/file_finder_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+  17) CommandT::Finder::FileFinder sorted_matches_for method returns matching files in score order
+      Failure/Error: stub(::VIM).evaluate(/expand/) { 0 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTFinderFileFinder::SortedMatchesForMethod:0x00560e66990f28>
+      # ./spec/command-t/finder/file_finder_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+  18) CommandT::Finder::FileFinder sorted_matches_for method obeys the :limit option for empty search strings
+      Failure/Error: stub(::VIM).evaluate(/expand/) { 0 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTFinderFileFinder::SortedMatchesForMethod:0x00560e66978928>
+      # ./spec/command-t/finder/file_finder_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+  19) CommandT::Finder::FileFinder sorted_matches_for method obeys the :limit option for non-empty search strings
+      Failure/Error: stub(::VIM).evaluate(/expand/) { 0 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTFinderFileFinder::SortedMatchesForMethod:0x00560e669641d0>
+      # ./spec/command-t/finder/file_finder_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+  20) CommandT::Scanner::BufferScanner paths method returns a list of regular files
+      Failure/Error: stub(@scanner).relative_path_under_working_directory(is_a(String)) { |arg| arg }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerBufferScanner::PathsMethod:0x00560e674b9ee0>
+      # ./spec/command-t/scanner/buffer_scanner_spec.rb:17:in `block (2 levels) in <top (required)>'
+
+  21) CommandT::Scanner::FileScanner::RubyFileScanner paths method returns a list of regular files
+      Failure/Error: stub(::VIM).evaluate(/exists/) { 1 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerFileScannerRubyFileScanner::PathsMethod:0x00560e66ce5160>
+      # ./spec/command-t/scanner/file_scanner/ruby_file_scanner_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+  22) CommandT::Scanner::FileScanner::RubyFileScanner path= method allows repeated applications of scanner at different paths
+      Failure/Error: stub(::VIM).evaluate(/exists/) { 1 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerFileScannerRubyFileScanner::PathMethod:0x00560e674c2900>
+      # ./spec/command-t/scanner/file_scanner/ruby_file_scanner_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+  23) CommandT::Scanner::FileScanner::RubyFileScanner 'wildignore' exclusion when there is a 'wildignore' setting in effect filters out matching files
+      Failure/Error: stub(::VIM).evaluate(/exists/) { 1 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerFileScannerRubyFileScanner::WildignoreExclusion::WhenThereIsAWildignoreSettingInEffect:0x00560e674c03a8>
+      # ./spec/command-t/scanner/file_scanner/ruby_file_scanner_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+  24) CommandT::Scanner::FileScanner::RubyFileScanner 'wildignore' exclusion when there is no 'wildignore' setting in effect does nothing
+      Failure/Error: stub(::VIM).evaluate(/exists/) { 1 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerFileScannerRubyFileScanner::WildignoreExclusion::WhenThereIsNoWildignoreSettingInEffect:0x00560e66cdc268>
+      # ./spec/command-t/scanner/file_scanner/ruby_file_scanner_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+  25) CommandT::Scanner::FileScanner::RubyFileScanner :max_depth option does not descend below "max_depth" levels
+      Failure/Error: stub(::VIM).evaluate(/exists/) { 1 }
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerFileScannerRubyFileScanner::MaxDepthOption:0x00560e674c9cc8>
+      # ./spec/command-t/scanner/file_scanner/ruby_file_scanner_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+  26) CommandT::Scanner::FileScanner::WatchmanFileScanner when an error occurs falls back to the FindFileScanner
+      Failure/Error:
+        stub(scanner).get_raw_sockname do
+          raise described_class::WatchmanError
+        end
+
+      NoMethodError:
+        undefined method `stub' for #<RSpec::ExampleGroups::CommandTScannerFileScannerWatchmanFileScanner::WhenAnErrorOccurs:0x00560e66cc8100>
+      # ./spec/command-t/scanner/file_scanner/watchman_file_scanner_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+Perhaps due to the test suite requiring a newer rspec than 3.5 (in sid at time of writing).
