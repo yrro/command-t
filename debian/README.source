@@ -7,7 +7,7 @@ history](file:///usr/share/doc/git-buildpackage/manual-html/gbp.import.html#GBP.
 
 Source packages are generated with:
 
-    $ gbp dch --release
+    $ gbp dch --release debian/
     $ gbp buildpackage --git-pristine-tar --git-tag
 
 A new upstream release can be imported with:
