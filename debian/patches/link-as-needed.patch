@@ -7,7 +7,7 @@ Subject: Link with --as-needed
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Rakefile b/Rakefile
-index 8e8f95f..9515980 100644
+index fbc877c..70380f2 100644
 --- a/Rakefile
 +++ b/Rakefile
 @@ -84,7 +84,7 @@ task :make do
