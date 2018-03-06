@@ -5,10 +5,13 @@ I'm maintaining the package using git-buildpackage, using [Upstream tarballs
 and linked upstream
 history](file:///usr/share/doc/git-buildpackage/manual-html/gbp.import.html#GBP.IMPORT.UPSTREAM.GIT.TARBALL>).
 
-Source packages are generated with:
+To import a new upstream release:
 
+    $ git checkout debian/sid
+    $ git merge REF
+    ... hack ...
     $ gbp dch --release debian/
-    $ gbp buildpackage --git-pristine-tar --git-tag
+    $ BUILDER=pbuilder gbp buildpackage --git-tag --git-pbuilder
 
 A new upstream release can be imported with:
 
