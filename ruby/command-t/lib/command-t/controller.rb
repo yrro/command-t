@@ -321,15 +321,15 @@ module CommandT
     guard :list_matches
 
     def tab_command
-      VIM::get_string('g:CommandTAcceptSelectionTabCommand') || 'CommandTOpen tabe'
+      VIM::get_string('g:CommandTAcceptSelectionTabCommand') || 'CommandTOpen tabedit'
     end
 
     def split_command
-      VIM::get_string('g:CommandTAcceptSelectionSplitCommand') || 'CommandTOpen sp'
+      VIM::get_string('g:CommandTAcceptSelectionSplitCommand') || 'CommandTOpen split'
     end
 
     def vsplit_command
-      VIM::get_string('g:CommandTAcceptSelectionVSplitCommand') || 'CommandTOpen vs'
+      VIM::get_string('g:CommandTAcceptSelectionVSplitCommand') || 'CommandTOpen vsplit'
     end
 
   private
@@ -431,9 +431,9 @@ module CommandT
         VIM::get_bool('&hidden') ||
         VIM::get_bool('&autowriteall') && !VIM::get_bool('&readonly') ||
         current_buffer_visible_in_other_window
-        VIM::get_string('g:CommandTAcceptSelectionCommand') || 'CommandTOpen e'
+        VIM::get_string('g:CommandTAcceptSelectionCommand') || 'CommandTOpen edit'
       else
-        'sp'
+        'split'
       end
     end
 
@@ -460,10 +460,14 @@ module CommandT
 
     def open_selection(selection, options = {})
       command = options[:command] || default_open_command
-      selection = File.expand_path selection, @path
-      selection = relative_path_under_working_directory selection
-      selection = sanitize_path_string selection
-      selection = File.join('.', selection) if selection =~ /^\+/
+      if @active_finder.respond_to?(:prepare_selection)
+        selection = @active_finder.prepare_selection(selection)
+      else
+        selection = File.expand_path selection, @path
+        selection = relative_path_under_working_directory selection
+        selection = sanitize_path_string selection
+        selection = File.join('.', selection) if selection =~ /^\+/
+      end
       ensure_appropriate_window_selection
 
       @active_finder.open_selection command, selection, options
