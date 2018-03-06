@@ -1,3 +1,21 @@
+vim-command-t (5.0.2-5-g7147ba9-1) unstable; urgency=medium
+
+  * Add .gitignore for byproducts of package building
+  * Install **/*.rb (and ext.so) by using cp --parents
+  * Install command-t.yaml with install -D
+  * Specify upstream/debian branch names
+  * Update README.Source with pointers to gbp documentation and examples
+  * Update reason test suite is ignored
+  * Limit gbp-dch to commits that touch the debian directory
+  * Rebase patches
+  * Order file list for vam registry deterministically.
+    Thanks to Chris Lamb <lamby@debian.org> (Closes: #862553)
+  * Correctly escape $1 in get-orig-source make rule
+  * Update changelog for release
+  * New upstream release
+
+ -- Sam Morris <sam@robots.org.uk>  Tue, 06 Mar 2018 10:48:39 +0000
+
 vim-command-t (4.0-4) unstable; urgency=medium
 
   * Begin using git-buildpackage to maintain the package.
