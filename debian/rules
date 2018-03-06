@@ -26,7 +26,7 @@ override_dh_install:
 	cd debian/vim-command-t/usr/lib/vim-command-t && \
 	    find -type f | LC_ALL=C sort | sed 's,^\./, - ,' >> ../../share/vim/registry/command-t.yaml
 
-get-orig-source: VERSION := $(shell dpkg-parsechangelog -S Version | perl -pe 's/(.*)-/$1/')
+get-orig-source: VERSION := $(shell dpkg-parsechangelog -S Version | perl -pe 's/(.*)-/$$1/')
 get-orig-source:
 	set -eu; \
 	    d=$(shell mktemp -d); \
