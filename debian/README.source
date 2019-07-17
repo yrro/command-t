@@ -7,10 +7,13 @@ history](file:///usr/share/doc/git-buildpackage/manual-html/gbp.import.html#GBP.
 
 To import a new upstream release:
 
+    $ git checkout upstream/latest
+    $ git merge VERSION
+    $ git tag upstream/VERSION
     $ git checkout debian/sid
-    $ git merge REF
+    $ git merge upstream/latest
     ... hack ...
-    $ gbp dch --release debian/
+    $ gbp dch --release -N VERSION-1 debian/
     $ BUILDER=pbuilder gbp buildpackage --git-tag --git-pbuilder
 
 A new upstream release can be imported with:
