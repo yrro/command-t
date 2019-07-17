@@ -1,3 +1,10 @@
+vim-command-t (5.0.3-1) unstable; urgency=medium
+
+  * Improve README.source with more steps for dealing with a new upstream version
+  * New upstream release
+
+ -- Sam Morris <sam@robots.org.uk>  Wed, 17 Jul 2019 17:59:12 +0100
+
 vim-command-t (5.0.2-5-g7147ba9-1) unstable; urgency=medium
 
   * Add .gitignore for byproducts of package building
