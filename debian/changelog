@@ -1,6 +1,13 @@
+vim-command-t (5.0.3-2) UNRELEASED; urgency=medium
+
+  * Wrap long lines in changelog entries: 5.0.3-1.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Tue, 05 May 2020 03:44:39 +0000
+
 vim-command-t (5.0.3-1) unstable; urgency=medium
 
-  * Improve README.source with more steps for dealing with a new upstream version
+  * Improve README.source with more steps for dealing with a new upstream
+    version
   * New upstream release
 
  -- Sam Morris <sam@robots.org.uk>  Wed, 17 Jul 2019 17:59:12 +0100
