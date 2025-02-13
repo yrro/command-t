@@ -1,0 +1,22 @@
+From: Lucas Kanashiro <kanashiro@debian.org>
+Date: Wed, 22 Jan 2025 18:30:20 -0300
+Subject: Replace File.exists? with File.exist?
+
+Forward: no
+---
+ Rakefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Rakefile b/Rakefile
+index ad88d3f..b81b612 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -70,7 +70,7 @@ end
+ desc 'Clean compiled products'
+ task :clean do
+   Dir.chdir 'ruby/command-t/ext/command-t' do
+-    system 'make clean' if File.exists?('Makefile')
++    system 'make clean' if File.exist?('Makefile')
+     system 'rm -f Makefile'
+   end
+ end

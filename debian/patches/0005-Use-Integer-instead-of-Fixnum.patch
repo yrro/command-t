@@ -1,0 +1,24 @@
+From: Lucas Kanashiro <kanashiro@debian.org>
+Date: Wed, 22 Jan 2025 18:41:15 -0300
+Subject: Use Integer instead of Fixnum
+
+In latest ruby version Fixnum was merged into Integer.
+
+Forwarded: no
+---
+ spec/command-t/watchman/utils_spec.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/spec/command-t/watchman/utils_spec.rb b/spec/command-t/watchman/utils_spec.rb
+index 94fd3eb..1de7e82 100644
+--- a/spec/command-t/watchman/utils_spec.rb
++++ b/spec/command-t/watchman/utils_spec.rb
+@@ -14,7 +14,7 @@ describe CommandT::Watchman::Utils do
+
+   def little_endian?
+     byte = [0xff00].pack('s')[0]
+-    if byte.is_a?(Fixnum) # ie. Ruby 1.8
++    if byte.is_a?(Integer) # ie. Ruby 1.8
+       byte.zero?
+     elsif byte.is_a?(String) # ie. Ruby >= 1.9
+       byte == "\x00"
