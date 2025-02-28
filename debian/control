@@ -4,7 +4,7 @@ Section: editors
 Priority: optional
 Build-Depends:
  bundler,
- debhelper-compat (= 10),
+ debhelper-compat (= 13),
  dh-vim-addon,
  rake,
  ruby,
